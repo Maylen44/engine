@@ -7,7 +7,8 @@ class IReceiver
 {
 public:
 	virtual ~IReceiver() = default;
-	virtual void receiveContent(Scene scene) = 0;
-	virtual void receiveContent(sf::Event& event) = 0;
+	virtual void receiveContent(Scene scene) {};
+	virtual void receiveContent(InputEvent event) {};
+	virtual void receiveContent(sf::Event& event) {};
 };
 #endif //I_RECEIVER_H

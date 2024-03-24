@@ -1,4 +1,5 @@
 #include "renderer.h"
+#include "config.h"
 
 Renderer::Renderer()
 	: m_window()
@@ -17,7 +18,7 @@ void Renderer::sendContent()
 	sf::Event pullEvent;
 	m_window.pollEvent(pullEvent);
 
-	for (auto& receiver : m_listReceivers)
+	for (IReceiver* receiver : m_listReceivers)
 	{
 		receiver->receiveContent(pullEvent);
 	}

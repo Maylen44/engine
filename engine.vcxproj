@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="config.cpp" />
+    <ClCompile Include="engine.cpp" />
     <ClCompile Include="event_handler.cpp" />
     <ClCompile Include="Libs\XML\Source\pugixml.cpp" />
     <ClCompile Include="logger.cpp" />
@@ -155,7 +156,9 @@
   <ItemGroup>
     <ClInclude Include="common_data.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="engine.h" />
     <ClInclude Include="event_handler.h" />
+    <ClInclude Include="Iapplication_object.h" />
     <ClInclude Include="Ireceiver.h" />
     <ClInclude Include="Isender.h" />
     <ClInclude Include="logger.h" />

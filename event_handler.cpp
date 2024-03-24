@@ -1,28 +1,39 @@
 #include "event_handler.h"
 
-EventHandler::EventHandler() : m_windowPullEvent() {}
+EventHandler::EventHandler()
+    : m_windowPullEvent()
+    , m_inputEvent() 
+{}
+
+void EventHandler::sendContent()
+{
+    for (IReceiver* receiver : m_listReceivers)
+    {
+        receiver->receiveContent(m_inputEvent);
+    }
+}
 
 void EventHandler::updateInputEvents()
 {
-    InputEvent event = InputEvent_NoInput;
+    m_inputEvent = InputEvent_NoInput;
 
     updateKeyboardState();
     updateMouseState();
 
     if ((m_windowPullEvent.type == sf::Event::Closed))
     {
-        event = InputEvent_CloseApplication;
+        m_inputEvent = InputEvent_CloseApplication;
     }
     else if (keyboardState[sf::Keyboard::Escape])
     {
-        event = InputEvent_ESC;
+        m_inputEvent = InputEvent_ESC;
     }
     else if (keyboardState[sf::Keyboard::R])
     {
-        event = InputEvent_Restart;
+        m_inputEvent = InputEvent_Restart;
     }
-    fetchKeyboardEvents(event);
-    fetchMouseEvents(event);
+    fetchKeyboardEvents(m_inputEvent);
+    fetchMouseEvents(m_inputEvent);
 }
 
 void EventHandler::updateKeyboardState()
@@ -41,7 +52,7 @@ void EventHandler::updateMouseState()
         mouseState[m_windowPullEvent.mouseButton.button] = false;
 }
 
-void EventHandler::fetchKeyboardEvents(InputEvent& event)
+void EventHandler::fetchKeyboardEvents(InputEvent event)
 {
     if (keyboardState[sf::Keyboard::W] || keyboardState[sf::Keyboard::Up])
         event = InputEvent_Up;
@@ -53,7 +64,7 @@ void EventHandler::fetchKeyboardEvents(InputEvent& event)
         event = InputEvent_Right;
 }
 
-void EventHandler::fetchMouseEvents(InputEvent& event)
+void EventHandler::fetchMouseEvents(InputEvent event)
 {
     if (mouseState[sf::Mouse::Left])
         event = InputEvent_MouseLeft;

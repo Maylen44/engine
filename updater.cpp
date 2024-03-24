@@ -3,6 +3,8 @@
 Updater::Updater()
 	: m_deltaClock()
 	, m_deltaTime(sf::seconds(0.1f))
+	, m_currentScene()
+	, m_inputEvent()
 {
 }
 

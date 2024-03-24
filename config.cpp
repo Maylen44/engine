@@ -28,8 +28,8 @@ ConfigManager::ConfigManager()
 
 ConfigManager* ConfigManager::instance()
 {
-    static ConfigManager* m_ptrConfigManager = new ConfigManager();
-    return m_ptrConfigManager;
+    static ConfigManager* ptrConfigManager = new ConfigManager();
+    return ptrConfigManager;
 }
 
 void ConfigManager::changeConfigTo(ConfigOption argToSetTo)

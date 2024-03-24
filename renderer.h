@@ -1,7 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "config.h"
 #include "common_data.h"
 #include "Isender.h"
 
@@ -10,10 +9,13 @@ class Renderer : public ISender
 public:
 	Renderer();
 	virtual ~Renderer() {};
+
+	//SR methods
 	void attach(IReceiver* receiver) override { m_listReceivers.push_back(receiver); };
 	void detach(IReceiver* receiver) override { m_listReceivers.remove(receiver); };
 	void sendContent() override;
 
+	//Class methods
 	void const renderContent(/*const std::vector<IGameObject*>& objects*/);
 	void updateWindowSettings();
 	void closeWindow();
