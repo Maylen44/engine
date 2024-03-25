@@ -8,11 +8,14 @@ Updater::Updater()
 {
 }
 
-void Updater::update()
+void Updater::update(std::list<IApplicationObject*>& objects)
 {
 	if (isFrameTime())
 	{
+		for (IApplicationObject* object : objects)
+		{
 
+		}
 	}
 }
 

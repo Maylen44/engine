@@ -3,6 +3,8 @@
 
 #include "common_data.h"
 #include "Ireceiver.h"
+#include "Iapplication_object.h"
+#include <list>
 
 class Updater : public IReceiver
 {
@@ -15,7 +17,7 @@ public:
 	void receiveContent(InputEvent event) override { m_inputEvent = event; };
 
 	//Class methods
-	void update();
+	void update(std::list<IApplicationObject*>& objects);
 	void resetContent();
 
 	bool isFrameTime();

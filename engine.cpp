@@ -51,27 +51,25 @@ Engine* Engine::instance()
 		s_ptrConfigManager = ConfigManager::instance();
 		s_ptrUpdater = new Updater();
 		s_ptrEventHandler = new EventHandler();
-		s_ptrSceneManager = new SceneManager();
+		s_ptrSceneManager = new SceneManager(Scene_Initialization);
 
 		s_initializeSenders();
 	}
 	return s_ptrEngine;
 }
 
-void Engine::addApplicationObject(IApplicationObject* object)
-{
-	m_objects.push_back(object);
-}
-
 void Engine::update()
 {
 	s_sendingContentForReceivers();
-	s_ptrRenderer->renderContent();
+	s_ptrUpdater->update(m_objects);
+}
 
+void Engine::draw()
+{
+	s_ptrRenderer->renderContent();
 }
 
 void Engine::logOutsideMsg(const char* msg)
 {
 	s_ptrLogger->log("%s", msg);
 }
-

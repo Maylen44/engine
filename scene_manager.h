@@ -7,7 +7,7 @@
 class SceneManager : public ISender
 {
 public:
-	SceneManager();
+	SceneManager(Scene startScene);
 	virtual ~SceneManager() {};
 
 	//SR methods

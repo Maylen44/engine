@@ -1,6 +1,6 @@
 #include "scene_manager.h"
 
-SceneManager::SceneManager() : m_currentScene() {}
+SceneManager::SceneManager(Scene startScene) : m_currentScene(startScene) {}
 
 bool SceneManager::getScene(Scene scene) const
 {

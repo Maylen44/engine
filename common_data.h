@@ -6,6 +6,7 @@
 
 enum Scene
 {
+	Scene_Initialization,
 	Scene_MainMenu,
 	Scene_SettingsMenu,
 	Scene_Game,

@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="assets_manager.cpp" />
     <ClCompile Include="config.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="event_handler.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="updater.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="assets_manager.h" />
     <ClInclude Include="common_data.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="engine.h" />
